@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -25,15 +25,11 @@ jobs:
       - name: Install dependencies for docs
         run: |
           sudo apt-get update
-          cd docs
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install -r requirements.txt
+          python -m pip install -r docs/requirements.txt
 
       - name: Generate documentation
         run: |
           cd docs
-          source .venv/bin/activate
           make html
           cd ..
           mkdir public/docs
