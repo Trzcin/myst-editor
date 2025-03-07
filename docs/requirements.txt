@@ -1,2 +1,1 @@
 https://github.com/antmicro/antmicro-sphinx-utils/archive/main.zip
-myst-parser==3.0.0
